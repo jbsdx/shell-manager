@@ -1,0 +1,38 @@
+{
+  "name": "shell-manager",
+  "version": "0.0.1",
+  "description": "NodeJS module executing foreign shell scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbsdx/shell-manager.git"
+  },
+  "keywords": [
+    "node",
+    "shell",
+    "python",
+    "execute"
+  ],
+  "author": "Jonas Benz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbsdx/shell-manager/issues"
+  },
+  "homepage": "https://github.com/jbsdx/shell-manager#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.0",
+    "@types/mocha": "^2.2.46",
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "python-shell": "^0.4.0",
+    "typescript-collections": "^1.2.5"
+  }
+}
