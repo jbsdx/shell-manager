@@ -1,15 +1,16 @@
 import { assert } from "chai";
 import { ScriptManager } from "../../lib/script-manager/ScriptManager";
-import { Python } from "../../lib/shell/Python";
+import { Shell } from "../../lib/shell/Shell";
 
 describe('ScriptManager', function () {
     describe('#python script runner', function () {
         it('should execute python script', function (done) {
 
-            let pythonScript = new Python("./test/script-manager/test.py");
-            pythonScript.addArgument("--test1", "script");
-            pythonScript.addArgument("--test2", "runner");
-            let scriptManager = new ScriptManager(pythonScript);
+            let scriptPath = "./test/script-manager/test.py";
+            
+            let scriptManager = new ScriptManager(Shell.Python, scriptPath);
+            scriptManager.addArgument("--test1", "script");
+            scriptManager.addArgument("--test2", "runner");
             scriptManager.execute()
                 .then((value) => {
                     assert.equal(value,"scriptrunner");
@@ -22,14 +23,15 @@ describe('ScriptManager', function () {
 
         it('should throw error if path is not available', function (done) {
 
-            let pythonScript = new Python("./test/script-manager/te12st.py");
-            pythonScript.addArgument("--test1", "script");
-            pythonScript.addArgument("--test2", "runner");
-            let scriptManager = new ScriptManager(pythonScript);
+            let scriptPath = "./test/script-manager/te12st.py";
+            
+            let scriptManager = new ScriptManager(Shell.Python, scriptPath);
+            scriptManager.addArgument("--test1", "script");
+            scriptManager.addArgument("--test2", "runner");
             scriptManager.execute()
                 .then((value) => {
                     assert.equal(value,"scriptrunner");
-                    done();
+                    done("no exception thrown!");
                 })
                 .catch((reason) => {
                     assert.equal(reason.error, "file not found");
