@@ -2,7 +2,8 @@
   "name": "shell-manager",
   "version": "0.0.1",
   "description": "NodeJS module executing foreign shell scripts",
-  "main": "index.js",
+  "main": "dist/out-tsc/lib/index.js",
+  "types": "dist/out-tsc/lib/index.d.ts",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.ts"
   },
@@ -26,6 +27,7 @@
     "@types/chai": "^4.1.0",
     "@types/mocha": "^2.2.46",
     "chai": "^4.1.2",
+    "gulp": "^3.9.1",
     "mocha": "^4.1.0",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2"

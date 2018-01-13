@@ -1,20 +1,32 @@
-import { IScriptRunner } from "./../script/IScriptRunner";
+import { IScript } from "./../script/IScript";
+import { Shell } from "./../shell/Shell";
+import { Python } from "../shell/Python";
+import Dictionary from "typescript-collections/dist/lib/Dictionary";
 
 /**
  * Executes Scripts of type IScriptRunner
- * 
- * let scriptManager = ScriptManager(new Python());7
- * scriptManager.$path = "pytonScript.py";
- * scriptManager.addArgument("--cascaded", "5")
- *              .addArgument("--block-orientation", "0");
- * scriptManager.
  */
 export class ScriptManager {
 
-    private script: IScriptRunner;
+    private script: IScript;
+    private path: string;
+    private shell: Shell;
 
-    constructor(script: IScriptRunner) {
-        this.script = script;
+    constructor(shell: Shell, path: string) {
+        this.shell = shell;
+        this.path = path;
+        this.resolveScriptRunner();
+    }
+
+    private resolveScriptRunner() {
+        switch(this.shell) {
+            case Shell.Python:
+                this.script = new Python(this.path);
+        }
+    }
+
+    public addArgument(key: string, value: string): boolean {
+        return this.script.addArgument(key, value);
     }
 
     public async execute(): Promise<any> {

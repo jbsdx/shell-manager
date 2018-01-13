@@ -1,8 +1,8 @@
 import PythonShell = require("python-shell");
-import { IScriptRunner } from "./../script/IScriptRunner";
+import { IScript } from "./../script/IScript";
 import { ScriptBase } from "./../script/ScriptBase";
 
-export class Python extends ScriptBase implements IScriptRunner {
+export class Python extends ScriptBase implements IScript {
 
     private getArgumentArray(): Array<string> {
         let argsList = this.getArgumentList(),

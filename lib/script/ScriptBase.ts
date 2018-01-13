@@ -19,9 +19,9 @@ export abstract class ScriptBase {
 		this.path = value;
     }
     
-    public addArgument(argKey: string, argValue: string): Dictionary<string, string> {
+    public addArgument(argKey: string, argValue: string): boolean {
         this.argument.setValue(argKey, argValue);
-        return this.argument;
+        return true;
     }
 
     public getArgumentList(): Dictionary<string, string> {
