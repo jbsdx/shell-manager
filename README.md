@@ -1,10 +1,9 @@
 # Usage example
 
 ```typescript
-let pythonScript = new Python("./test/script-manager/test.py");
-pythonScript.addArgument("--test1", "script");
-pythonScript.addArgument("--test2", "runner");
-let scriptManager = new ScriptManager(pythonScript);
+let scriptManager = new ScriptManager(Shell.Python, "./skript.py");
+scriptManager.addArgument("--test1", "script");
+scriptManager.addArgument("--test2", "runner");
 scriptManager.execute()
     .then((value) => {
         assert.equal(value,"scriptrunner");
