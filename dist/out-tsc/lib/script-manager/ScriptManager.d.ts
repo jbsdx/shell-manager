@@ -7,7 +7,7 @@ export declare class ScriptManager {
     private path;
     private shell;
     constructor(shell: Shell, path: string);
-    private resolveScriptRunner();
+    private resolveScriptRunner;
     addArgument(key: string, value: string): boolean;
     execute(): Promise<any>;
 }

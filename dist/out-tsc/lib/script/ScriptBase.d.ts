@@ -7,5 +7,5 @@ export declare abstract class ScriptBase {
     addArgument(argKey: string, argValue: string): boolean;
     getArgumentList(): Dictionary<string, string>;
     validate(): Promise<any>;
-    private fileExists(path);
+    private fileExists;
 }
